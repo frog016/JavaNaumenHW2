@@ -3,9 +3,14 @@ package org.example;
 import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 
 public class Main {
+    private static final Path FROM_FOLDER_PATH = Paths.get("src\\test\\FromFolder").toAbsolutePath();
+    private static final Path TO_FOLDER_PATH = Paths.get("src\\test\\ToFolder").toAbsolutePath();
+
     public static void main(String[] args) throws IOException, InterruptedException, ParseException {
         Scanner input = new Scanner(System.in);
 
@@ -19,6 +24,9 @@ public class Main {
         System.out.println();
 
         invokeTask4();
+        System.out.println();
+
+        invokeTask5();
         System.out.println();
     }
 
@@ -63,5 +71,14 @@ public class Main {
         ArrayList<String> responseHeaderValues = binRequest.getHeaders(response);
 
         System.out.println(responseHeaderValues.toString());
+    }
+
+    private static void invokeTask5() throws InterruptedException {
+        System.out.println("Задание 5: реализация Task для синхронизации папок");
+
+        SyncFilesTask task = new SyncFilesTask(FROM_FOLDER_PATH, TO_FOLDER_PATH);
+        task.start();
+        Thread.sleep(1000);
+        task.stop();
     }
 }
