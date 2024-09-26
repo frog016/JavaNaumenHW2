@@ -8,8 +8,8 @@ import java.nio.file.Paths;
 import java.util.*;
 
 public class Main {
-    private static final Path FROM_FOLDER_PATH = Paths.get("src\\test\\FromFolder").toAbsolutePath();
-    private static final Path TO_FOLDER_PATH = Paths.get("src\\test\\ToFolder").toAbsolutePath();
+    private static final Path FROM_FOLDER_PATH = Paths.get("src\\main\\resources\\FromFolder").toAbsolutePath();
+    private static final Path TO_FOLDER_PATH = Paths.get("src\\main\\resources\\ToFolder").toAbsolutePath();
 
     public static void main(String[] args) throws IOException, InterruptedException, ParseException {
         Scanner input = new Scanner(System.in);
